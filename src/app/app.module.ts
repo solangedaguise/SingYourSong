@@ -9,21 +9,24 @@ import { TourKaraokeComponent } from './tour-karaoke/tour-karaoke.component';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PrenomComponent } from './tour-karaoke/prenom/prenom.component';
+import { VideoComponent } from './tour-karaoke/video/video.component';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
     AppComponent,
     TourKaraokeComponent,
-    PrenomComponent
+    PrenomComponent,
+    VideoComponent
   ],
   imports: [
     MatButtonModule,
+    MatCardModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule
   ],
   exports: [
-    MatButtonModule,
     ReactiveFormsModule,
     CommonModule
   ],

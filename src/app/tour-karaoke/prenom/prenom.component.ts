@@ -7,6 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class PrenomComponent implements OnInit {
   @Input() prenom: string ='inconnu';
+  @Input() commantaire: string ='Quelle incroyable personne';
   constructor() { }
 
   ngOnInit(): void {
