@@ -1,5 +1,6 @@
 <div  class='container'>
-    <h1>Bienvenue sur le karaoké du FUN</h1>
+    <h1 *ngIf="display">Bienvenue sur le karaoké du FUN</h1>
+    <h1 *ngIf="!display">Qui va chanter quoi ?</h1>
     <button *ngIf="display" mat-raised-button color="primary" [routerLink]="['/tour-karaoke']" (click)="toggle()" >Jouer au KARAOKE</button>
 
 <router-outlet></router-outlet></div>
