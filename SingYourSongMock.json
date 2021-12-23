@@ -233,53 +233,53 @@
 	"chanteurs" : [
 		{
 			"id":"1",
-			"chanteur" : "Thibaut",
-			"refs" : ""
+			"prenom" : "Thibaut",
+			"commentaire" : "Il zouke comme personne"
 		},
 		{
 			"id":"2",
-			"chanteur" : "Elodie",
-			"refs" : ""
+			"prenom" : "Elodie",
+			"commentaire" : "Ne parlons pas de Bruno"
 		},
 		{
 			"id":"3",
-			"chanteur" : "Adam",
-			"refs" : ""
+			"prenom" : "Adam",
+			"commentaire" : "Funaaaaambule !!!!"
 		},
 		{
 			"id":"4",
-			"chanteur" : "Thibaut",
-			"refs" : ""
+			"prenom" : "Damien",
+			"commentaire" : "Je peux pas j'ai roller"
 		},
 		{
 			"id":"5",
-			"chanteur" : "Dominique",
-			"refs" : ""
+			"prenom" : "Dominique",
+			"commentaire" : ""
 		},
 		{
 			"id":"6",
-			"chanteur" : "Dorian",
-			"refs" : ""
+			"prenom" : "Dorian",
+			"commentaire" : "La CULTURE"
 		},
 		{
 			"id":"7",
-			"chanteur" : "Jeremy",
-			"refs" : ""
+			"prenom" : "Nerop",
+			"commentaire" : "J'ai fait mon pb sur OSU"
 		},
 		{
 			"id":"8",
-			"chanteur" : "Sarah",
-			"refs" : ""
+			"prenom" : "Sarah",
+			"commentaire" : ""
 		},
 		{
 			"id":"9",
-			"chanteur" : "Solange",
-			"refs" : ""
+			"prenom" : "Solange",
+			"commentaire" : "*Bruit de prout*"
 		},
 		{
 			"id":"10",
-			"chanteur" : "Valentin",
-			"refs" : ""
+			"prenom" : "Valentin",
+			"commentaire" : "inserer commentaire"
 		}
 	]
 }
