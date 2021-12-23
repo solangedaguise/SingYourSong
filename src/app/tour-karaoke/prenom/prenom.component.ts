@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Chanteur } from 'src/app/model/chanteur';
 
 @Component({
   selector: 'app-prenom',
@@ -6,8 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./prenom.component.scss']
 })
 export class PrenomComponent implements OnInit {
-  @Input() prenom: string ='inconnu';
-  @Input() commantaire: string ='Quelle incroyable personne';
+  @Input() chanteur: Chanteur = new Chanteur();
   constructor() { }
 
   ngOnInit(): void {

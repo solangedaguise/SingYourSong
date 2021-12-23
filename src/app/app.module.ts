@@ -11,6 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { PrenomComponent } from './tour-karaoke/prenom/prenom.component';
 import { VideoComponent } from './tour-karaoke/video/video.component';
 import {MatCardModule} from '@angular/material/card';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {MatCardModule} from '@angular/material/card';
     MatCardModule,
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   exports: [
     ReactiveFormsModule,

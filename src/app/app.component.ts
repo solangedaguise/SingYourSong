@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'SingYourSong';
+  display: boolean = true;
+
+  public toggle(){
+    this.display = !this.display
+    console.log(this.display);
+  }
 }
