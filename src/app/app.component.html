@@ -1,6 +1,25 @@
-<div  class='container'>
-    <h1 *ngIf="display">Bienvenue sur le karaoké du FUN</h1>
-    <h1 *ngIf="!display">Qui va chanter quoi ?</h1>
-    <button *ngIf="display" mat-raised-button color="primary" [routerLink]="['/tour-karaoke']" (click)="toggle()" >Jouer au KARAOKE</button>
+<div class='main'>
+<mat-toolbar color="primary" class="">
+	<button mat-icon-button (click)="isExpanded = !isExpanded"><mat-icon>menu</mat-icon></button>
+	<h1>Sing Your Song</h1>
+</mat-toolbar>
+<mat-drawer-container class="drawer" autosize [hasBackdrop]="false">
+	<mat-drawer *ngIf="isExpanded" #sidenav class="sidenav" mode="over" opened="true" (mouseenter)="mouseenter()" (mouseleave)="mouseleave()">
+		<mat-nav-list>
+            <app-menu-item [menuPrincipal]="menuKaraoke" [icone]="'mic'" ></app-menu-item>
+            <app-menu-item [menuPrincipal]="menuAdmin" [subMenus]="subMenusAdmin" [icone]="'build'"></app-menu-item>
+		</mat-nav-list>
+    <mat-nav-list>
+</mat-nav-list>
+	</mat-drawer>
 
-<router-outlet></router-outlet></div>
+	<div class="sidenav-content container">
+            <h1 *ngIf="display">Bienvenue sur le karaoké du FUN</h1>
+            <h1 *ngIf="!display">Qui va chanter quoi ?</h1>
+            <button *ngIf="display" mat-raised-button color="primary" [routerLink]="['/tour-karaoke']" (click)="toggleButtons()" >Jouer au KARAOKE</button>
+        
+        <router-outlet></router-outlet>
+	</div>
+
+</mat-drawer-container>
+</div>

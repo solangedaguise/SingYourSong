@@ -7,22 +7,36 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TourKaraokeComponent } from './tour-karaoke/tour-karaoke.component';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrenomComponent } from './tour-karaoke/prenom/prenom.component';
 import { VideoComponent } from './tour-karaoke/video/video.component';
 import {MatCardModule} from '@angular/material/card';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { SideNavComponent } from './shared/components/side-nav/side-nav.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatListModule} from '@angular/material/list';
+import {MatIconModule} from '@angular/material/icon';
+import { MenuItemComponent } from './shared/components/menu-item/menu-item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TourKaraokeComponent,
     PrenomComponent,
-    VideoComponent
+    VideoComponent,
+    SideNavComponent,
+    MenuItemComponent
   ],
   imports: [
+    MatListModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatSidenavModule,
     MatButtonModule,
     MatCardModule,
+    ReactiveFormsModule,
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
