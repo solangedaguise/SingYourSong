@@ -23,6 +23,7 @@ export class TourKaraokeComponent implements OnInit {
     this.chanteurB.commentaire="OH...MY...GOD!!!";
     this.chanteurB.prenom="Monica";
 
+    //TODO Trier les deux prénoms par ordre alphabetique A B
     this.urlPhoto = "/assets/" + this.chanteurA.prenom + "_" + this.chanteurB.prenom + ".jpg";
     }
 
