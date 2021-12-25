@@ -13,4 +13,11 @@ public interface UserService {
 
 	Optional<User> getUser(Long id);
 
+	/**
+	 * Choisis N joueurs aléatoirement dans tous les joueurs existants
+	 * @param nombreJoueurs
+	 * @return
+	 */
+	List<User> getRandomUsers(Integer nombreJoueurs);
+
 }
