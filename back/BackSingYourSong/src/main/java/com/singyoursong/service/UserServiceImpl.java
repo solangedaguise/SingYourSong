@@ -1,6 +1,7 @@
 package com.singyoursong.service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,11 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public List<User> getAllUsers() {
 		return repo.findAll();
+	}
+	
+	@Override
+	public Optional<User> getUser(Long id) {
+		return repo.findById(id);
 	}
 	
 	@Override
