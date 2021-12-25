@@ -29,4 +29,7 @@ public class Chanson {
 	
 	@Column(name = "lien")
 	private String lien;
+	
+	@Column(name = "lienEmbed")
+	private String lienEmbed;
 }

@@ -2,6 +2,6 @@
 <div class='container-horizontal'>
 <app-prenom [chanteur]=chanteurA></app-prenom> <img class='photo' [src]="urlPhoto" id="photo"/> <app-prenom [chanteur]=chanteurB></app-prenom>
 </div>
-<app-video [lien]=urlVideoSafe></app-video>
+<app-video [lien]=urlVideoSafe [lienOnglet]=lienOnglet></app-video>
 <button mat-raised-button color="primary" (click)="random()">RANDOM PLAYERZZ</button>
 </div>

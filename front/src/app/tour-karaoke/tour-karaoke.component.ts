@@ -16,6 +16,7 @@ export class TourKaraokeComponent implements OnInit {
   nbChanteurs: number = 2;
   chanson: Chanson = new Chanson();
   urlVideoSafe!: SafeResourceUrl;
+  lienOnglet! : string;
   urlPhoto: string = '';
   constructor(
     private chanteurService: ChanteurService,
@@ -42,7 +43,9 @@ export class TourKaraokeComponent implements OnInit {
           this.nbChanteurs = 2;
         }
         // this.urlVideoSafe = this.chanson.lien;
-        this.urlVideoSafe = this.sanitizer.bypassSecurityTrustResourceUrl(this.chanson.lien);
+        this.urlVideoSafe = this.sanitizer.bypassSecurityTrustResourceUrl(this.chanson.lienEmbed);
+        this.lienOnglet = this.chanson.lien;
+        
         //Recup des chanteurs
         this.chanteurService.getRandomUsers(this.nbChanteurs)
         .subscribe((chanteurs) => {

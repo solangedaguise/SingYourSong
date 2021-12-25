@@ -3,5 +3,6 @@ export class Chanson {
     artiste!: string;
     titre!: string;
     lien!: string;
+    lienEmbed! : string;
     nombreChanteurs!: number;
 }

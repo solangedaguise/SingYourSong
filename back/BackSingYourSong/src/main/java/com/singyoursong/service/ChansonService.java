@@ -28,7 +28,7 @@ public class ChansonService implements IChansonService {
 	public void saveMultiple(List<Chanson> chansons) {
 	    
 		List<Chanson> chansonsEmbed = chansons.stream().map(chanson -> {
-			chanson.setLien(chanson.getLien().replaceAll("watch.v=", "embed/"));
+			chanson.setLienEmbed(chanson.getLien().replaceAll("watch.v=", "embed/"));
 			return chanson;
 		}).collect(Collectors.toList());
 		repo.saveAll(chansonsEmbed);
