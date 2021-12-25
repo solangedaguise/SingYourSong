@@ -10,16 +10,21 @@ import { ChanteurService } from '../service/chanteur.service';
 export class TourKaraokeComponent implements OnInit {
   chanteurA: Chanteur = new Chanteur;
   chanteurB: Chanteur = new Chanteur;
+  urlPhoto: string = '';
   constructor(
-    private chanteurService: ChanteurService
+    private chanteurService: ChanteurService,
   ) { }
 
   ngOnInit(): void {
     //TODO appel module random chanteur
-    const idChanteurA = "1";
-    const idChanteurB = "3";
-    this.chanteurService.findOne(idChanteurA).subscribe((chanteur) => this.chanteurA = chanteur);
-    this.chanteurService.findOne(idChanteurB).subscribe((chanteur) => this.chanteurB = chanteur);
-  }
+    this.chanteurA.commentaire="Bing!!!";
+    this.chanteurA.prenom="Chandler";
+
+    this.chanteurB.commentaire="OH...MY...GOD!!!";
+    this.chanteurB.prenom="Monica";
+
+    //TODO Trier les deux prénoms par ordre alphabetique A B
+    this.urlPhoto = "/assets/" + this.chanteurA.prenom + "_" + this.chanteurB.prenom + ".jpg";
+    }
 
 }
