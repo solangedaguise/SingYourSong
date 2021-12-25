@@ -26,7 +26,7 @@ export class TourKaraokeComponent implements OnInit {
   ngOnInit(): void {
     this.random();
     //TODO Trier les deux prénoms par ordre alphabetique A B
-    this.urlPhoto = "/assets/" + this.chanteurA.prenom + "_" + this.chanteurB.prenom + ".jpg";
+    
     }
 
     random() {
@@ -48,6 +48,7 @@ export class TourKaraokeComponent implements OnInit {
         .subscribe((chanteurs) => {
           this.chanteurA = chanteurs[0];
           this.chanteurB = chanteurs[1];
+          this.urlPhoto = "/assets/" + this.chanteurA.prenom + "_" + this.chanteurB.prenom + ".jpg";
         });
       });
     }

@@ -2,6 +2,9 @@ package com.singyoursong.service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,7 +26,12 @@ public class ChansonService implements IChansonService {
 
 	@Override
 	public void saveMultiple(List<Chanson> chansons) {
-		repo.saveAll(chansons);
+	    
+		List<Chanson> chansonsEmbed = chansons.stream().map(chanson -> {
+			chanson.setLien(chanson.getLien().replaceAll("watch.v=", "embed/"));
+			return chanson;
+		}).collect(Collectors.toList());
+		repo.saveAll(chansonsEmbed);
 
 	}
 
