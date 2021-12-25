@@ -28,14 +28,9 @@ export class AppComponent {
   }];
 
   title = 'SingYourSong';
-  display: boolean = true;
   showFiller = false;
-  public toggleButtons(){
-    this.display = !this.display
-    console.log(this.display);
-  }
   @ViewChild('sidenav') sidenav: MatSidenav | undefined;
-  isExpanded = true;
+  isExpanded = false;
   
   showSubmenu: boolean = false;
   isShowing = false;

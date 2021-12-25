@@ -2,6 +2,6 @@ export class Chanson {
     id!: string;
     artiste!: string;
     titre!: string;
-    url!: string;
+    lien!: string;
     nombreChanteurs!: number;
 }

@@ -18,6 +18,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
 import { MenuItemComponent } from './shared/components/menu-item/menu-item.component';
+import { AccueilComponent } from './accueil/accueil.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { MenuItemComponent } from './shared/components/menu-item/menu-item.compo
     PrenomComponent,
     VideoComponent,
     SideNavComponent,
-    MenuItemComponent
+    MenuItemComponent,
+    AccueilComponent
   ],
   imports: [
     MatListModule,

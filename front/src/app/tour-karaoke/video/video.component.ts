@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-video',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./video.component.scss']
 })
 export class VideoComponent implements OnInit {
-
+  @Input() lien!: SafeResourceUrl;
   constructor() { }
 
   ngOnInit(): void {
