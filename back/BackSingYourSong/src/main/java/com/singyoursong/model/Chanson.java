@@ -32,4 +32,7 @@ public class Chanson {
 	
 	@Column(name = "lienEmbed")
 	private String lienEmbed;
+	
+	@Column(name = "nombreChanteurs")
+	private Integer nombreChanteurs;
 }
