@@ -26,8 +26,6 @@ export class TourKaraokeComponent implements OnInit {
 
   ngOnInit(): void {
     this.random();
-    //TODO Trier les deux prénoms par ordre alphabetique A B
-    
     }
 
     random() {
