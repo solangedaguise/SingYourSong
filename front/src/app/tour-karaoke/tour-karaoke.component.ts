@@ -51,7 +51,13 @@ export class TourKaraokeComponent implements OnInit {
         .subscribe((chanteurs) => {
           this.chanteurA = chanteurs[0];
           this.chanteurB = chanteurs[1];
-          this.urlPhoto = "/assets/" + this.chanteurA.prenom + "_" + this.chanteurB.prenom + ".jpg";
+          
+          if (this.chanteurA.prenom.localeCompare(this.chanteurB.prenom) == -1) {
+            this.urlPhoto = "/assets/" + this.chanteurA.prenom + "_" + this.chanteurB.prenom + ".jpg";
+          }
+          else {
+            this.urlPhoto = "/assets/" + this.chanteurB.prenom + "_" + this.chanteurA.prenom + ".jpg";
+        }
         });
       });
     }
