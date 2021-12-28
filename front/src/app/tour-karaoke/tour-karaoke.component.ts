@@ -20,7 +20,7 @@ export class TourKaraokeComponent implements OnInit {
   urlPhoto: string = '';
   urlChanteurA: string = '';
   urlChanteurB: string = '';
-  imageDuo: boolean = false;
+  imageDuo!: boolean ;
 
   constructor(
     private chanteurService: ChanteurService,
@@ -53,20 +53,15 @@ export class TourKaraokeComponent implements OnInit {
         .subscribe((chanteurs) => {
           this.chanteurA = chanteurs[0];
           this.chanteurB = chanteurs[1];
-          this.urlChanteurA = this.chanteurService.setUrlSolo(this.chanteurA);
-          this.urlChanteurB = this.chanteurService.setUrlSolo(this.chanteurB);
-
-          if (this.chanteurA.prenom.localeCompare(this.chanteurB.prenom) == -1) {
-            this.urlPhoto = this.chanteurService.setUrl(this.chanteurA,this.chanteurB);
-          }
-          else {
-            this.urlPhoto = this.chanteurService.setUrl(this.chanteurB,this.chanteurA);
-          }
-          console.log("HO");
+          this.urlPhoto = this.chanteurService.setImageDuoSrc(this.chanteurA, this.chanteurB);
           this.imageExists(this.urlPhoto, (_exists: any) => {
             this.imageDuo = _exists;
-            console.log(this.imageDuo);
           });
+
+          if (!this.imageDuo) {
+            this.urlChanteurA = this.chanteurService.setUrlSolo(this.chanteurA);
+            this.urlChanteurB = this.chanteurService.setUrlSolo(this.chanteurB);
+          }
         });
       });
   }
@@ -77,6 +72,5 @@ export class TourKaraokeComponent implements OnInit {
       img.onerror = function() { callback(false); };
       img.src = url;
   }
-
 }
 

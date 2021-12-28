@@ -18,6 +18,15 @@ export class ChanteurService extends CrudService<Chanteur,string> {
     return this._http.get<any>(this._base + '/random', {params});
   }
 
+  setImageDuoSrc(chanteurA: Chanteur, chanteurB: Chanteur){
+    if (chanteurA.prenom.localeCompare(chanteurB.prenom) == -1) {
+      return this.setUrl(chanteurA,chanteurB);
+    }
+    else {
+      return this.setUrl(chanteurB,chanteurA);
+    }
+  }
+  
   setUrlSolo(chanteur: Chanteur){
     return "/assets/" + chanteur.prenom + ".jpg";
   }
@@ -25,4 +34,6 @@ export class ChanteurService extends CrudService<Chanteur,string> {
   setUrl(chanteurA: Chanteur, chanteurB: Chanteur){
     return "/assets/" + chanteurA.prenom + "_" + chanteurB.prenom + ".jpg";
   }
+
+  
 }
