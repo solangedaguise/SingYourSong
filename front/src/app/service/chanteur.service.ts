@@ -17,4 +17,12 @@ export class ChanteurService extends CrudService<Chanteur,string> {
     let params = new HttpParams().set("nombreJoueurs",nombreJoueurs);
     return this._http.get<any>(this._base + '/random', {params});
   }
+
+  setUrlSolo(chanteur: Chanteur){
+    return "/assets/" + chanteur.prenom + ".jpg";
+  }
+
+  setUrl(chanteurA: Chanteur, chanteurB: Chanteur){
+    return "/assets/" + chanteurA.prenom + "_" + chanteurB.prenom + ".jpg";
+  }
 }

@@ -18,6 +18,10 @@ export class TourKaraokeComponent implements OnInit {
   urlVideoSafe!: SafeResourceUrl;
   lienOnglet! : string;
   urlPhoto: string = '';
+  urlChanteurA: string = '';
+  urlChanteurB: string = '';
+  imageDuo: boolean = false;
+
   constructor(
     private chanteurService: ChanteurService,
     private chansonService: ChansonService,
@@ -28,7 +32,7 @@ export class TourKaraokeComponent implements OnInit {
     this.random();
     }
 
-    random() {
+  random() {
       //Recup de la musique
       this.chansonService.getRandomChansons(1)
       .subscribe((chansons) => {
@@ -49,15 +53,30 @@ export class TourKaraokeComponent implements OnInit {
         .subscribe((chanteurs) => {
           this.chanteurA = chanteurs[0];
           this.chanteurB = chanteurs[1];
-          
+          this.urlChanteurA = this.chanteurService.setUrlSolo(this.chanteurA);
+          this.urlChanteurB = this.chanteurService.setUrlSolo(this.chanteurB);
+
           if (this.chanteurA.prenom.localeCompare(this.chanteurB.prenom) == -1) {
-            this.urlPhoto = "/assets/" + this.chanteurA.prenom + "_" + this.chanteurB.prenom + ".jpg";
+            this.urlPhoto = this.chanteurService.setUrl(this.chanteurA,this.chanteurB);
           }
           else {
-            this.urlPhoto = "/assets/" + this.chanteurB.prenom + "_" + this.chanteurA.prenom + ".jpg";
-        }
+            this.urlPhoto = this.chanteurService.setUrl(this.chanteurB,this.chanteurA);
+          }
+          console.log("HO");
+          this.imageExists(this.urlPhoto, (_exists: any) => {
+            this.imageDuo = _exists;
+            console.log(this.imageDuo);
+          });
         });
       });
-    }
+  }
+
+  imageExists(url: string, callback:any) {
+      var img = new Image();
+      img.onload = function() {callback(true);};
+      img.onerror = function() { callback(false); };
+      img.src = url;
+  }
 
 }
+
