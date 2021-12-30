@@ -41,9 +41,9 @@ export class TourKaraokeComponent implements OnInit {
         if (this.chanson.nombreChanteurs !==0 && 
           this.chanson.nombreChanteurs !== null && 
           this.chanson.nombreChanteurs !== undefined) {
-          this.nbChanteurs = this.chanson.nombreChanteurs;
+          this.nbChanteurs = this.chanson.nombreChanteurs + 1;
         } else {
-          this.nbChanteurs = 2;
+          this.nbChanteurs = 3;
         }
         // this.urlVideoSafe = this.chanson.lien;
         this.urlVideoSafe = this.sanitizer.bypassSecurityTrustResourceUrl(this.chanson.lienEmbed);
@@ -55,6 +55,7 @@ export class TourKaraokeComponent implements OnInit {
           this.chanteurA = chanteurs[0];
           this.chanteurB = chanteurs[1];
           this.chanteurJoker = chanteurs[2];
+          console.log(this.chanteurJoker);
           this.setImage(this.chanteurA,this.chanteurB);
         });
       });
@@ -77,6 +78,16 @@ export class TourKaraokeComponent implements OnInit {
             this.urlChanteurA = this.chanteurService.setUrlSolo(chanteurA);
             this.urlChanteurB = this.chanteurService.setUrlSolo(chanteurB);
           }
+  }
+
+  changeChanteur(chanteur:Chanteur){
+    if (chanteur.prenom == this.chanteurA.prenom){
+      this.chanteurA = this.chanteurJoker;
+    }
+    else{
+      this.chanteurB = this.chanteurJoker;
+    }
+    this.setImage(this.chanteurA,this.chanteurB);
   }
 }
 
