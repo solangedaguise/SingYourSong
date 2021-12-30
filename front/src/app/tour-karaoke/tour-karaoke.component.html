@@ -2,10 +2,12 @@
 <div class='container-horizontal'>
     <div class='carte-chanteur'> <app-prenom [chanteur]=chanteurA></app-prenom> <button mat-raised-button color="primary" (click)="changeChanteur(chanteurA)">Mais c'est encore moi euh</button>
     </div>
-<img *ngIf="imageDuo" class='photo' [src]="urlPhoto"/><img *ngIf="!imageDuo" class='photo' [src]="urlChanteurA"/> <img *ngIf="!imageDuo" class='photo' [src]="urlChanteurB"/>
+<img *ngIf="imageDuo" class='photo' [src]="urlPhoto"/>
+<img *ngIf="!imageDuo" class='photo' [src]="urlChanteurA"/>
+<img *ngIf="!imageDuo" class='photo' [src]="urlChanteurB"/>
 <div class='carte-chanteur'> <app-prenom [chanteur]=chanteurB></app-prenom> <button mat-raised-button color="primary" (click)="changeChanteur(chanteurB)">Mais c'est encore moi euh</button>
 </div>
 </div>
-<app-video [lien]=urlVideoSafe [lienOnglet]=lienOnglet></app-video>
+<app-video [lien]="urlVideoSafe" [lienOnglet]=lienOnglet></app-video>
 <button mat-raised-button color="primary" (click)="random()">RANDOM PLAYERZZ</button>
 </div>
