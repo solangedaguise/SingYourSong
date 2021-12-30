@@ -13,7 +13,8 @@ import { ChanteurService } from '../service/chanteur.service';
 export class TourKaraokeComponent implements OnInit {
   chanteurA: Chanteur = new Chanteur;
   chanteurB: Chanteur = new Chanteur;
-  chanteurJoker: Chanteur = new Chanteur;
+  chanteurJokerA: Chanteur = new Chanteur;
+  chanteurJokerB: Chanteur = new Chanteur;
   nbChanteurs: number = 2;
   chanson: Chanson = new Chanson();
   urlVideoSafe!: SafeResourceUrl;
@@ -41,9 +42,9 @@ export class TourKaraokeComponent implements OnInit {
         if (this.chanson.nombreChanteurs !==0 && 
           this.chanson.nombreChanteurs !== null && 
           this.chanson.nombreChanteurs !== undefined) {
-          this.nbChanteurs = this.chanson.nombreChanteurs + 1;
+          this.nbChanteurs = this.chanson.nombreChanteurs + 2;
         } else {
-          this.nbChanteurs = 3;
+          this.nbChanteurs = 4;
         }
         // this.urlVideoSafe = this.chanson.lien;
         this.urlVideoSafe = this.sanitizer.bypassSecurityTrustResourceUrl(this.chanson.lienEmbed);
@@ -54,8 +55,8 @@ export class TourKaraokeComponent implements OnInit {
         .subscribe((chanteurs) => {
           this.chanteurA = chanteurs[0];
           this.chanteurB = chanteurs[1];
-          this.chanteurJoker = chanteurs[2];
-          console.log(this.chanteurJoker);
+          this.chanteurJokerA = chanteurs[2];
+          this.chanteurJokerB = chanteurs[3];
           this.setImage(this.chanteurA,this.chanteurB);
         });
       });
@@ -82,10 +83,10 @@ export class TourKaraokeComponent implements OnInit {
 
   changeChanteur(chanteur:Chanteur){
     if (chanteur.prenom == this.chanteurA.prenom){
-      this.chanteurA = this.chanteurJoker;
+      this.chanteurA = this.chanteurJokerA;
     }
     else{
-      this.chanteurB = this.chanteurJoker;
+      this.chanteurB = this.chanteurJokerB;
     }
     this.setImage(this.chanteurA,this.chanteurB);
   }
