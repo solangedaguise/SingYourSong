@@ -34,6 +34,4 @@ export class ChanteurService extends CrudService<Chanteur,string> {
   setUrl(chanteurA: Chanteur, chanteurB: Chanteur){
     return "/assets/" + chanteurA.prenom + "_" + chanteurB.prenom + ".jpg";
   }
-
-  
 }

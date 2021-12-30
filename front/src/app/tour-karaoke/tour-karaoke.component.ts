@@ -13,6 +13,7 @@ import { ChanteurService } from '../service/chanteur.service';
 export class TourKaraokeComponent implements OnInit {
   chanteurA: Chanteur = new Chanteur;
   chanteurB: Chanteur = new Chanteur;
+  chanteurJoker: Chanteur = new Chanteur;
   nbChanteurs: number = 2;
   chanson: Chanson = new Chanson();
   urlVideoSafe!: SafeResourceUrl;
@@ -53,15 +54,8 @@ export class TourKaraokeComponent implements OnInit {
         .subscribe((chanteurs) => {
           this.chanteurA = chanteurs[0];
           this.chanteurB = chanteurs[1];
-          this.urlPhoto = this.chanteurService.setImageDuoSrc(this.chanteurA, this.chanteurB);
-          this.imageExists(this.urlPhoto, (_exists: any) => {
-            this.imageDuo = _exists;
-          });
-
-          if (!this.imageDuo) {
-            this.urlChanteurA = this.chanteurService.setUrlSolo(this.chanteurA);
-            this.urlChanteurB = this.chanteurService.setUrlSolo(this.chanteurB);
-          }
+          this.chanteurJoker = chanteurs[2];
+          this.setImage(this.chanteurA,this.chanteurB);
         });
       });
   }
@@ -71,6 +65,18 @@ export class TourKaraokeComponent implements OnInit {
       img.onload = function() {callback(true);};
       img.onerror = function() { callback(false); };
       img.src = url;
+  }
+
+  private setImage(chanteurA: Chanteur, chanteurB: Chanteur){
+    this.urlPhoto = this.chanteurService.setImageDuoSrc(chanteurA, chanteurB);
+          this.imageExists(this.urlPhoto, (_exists: any) => {
+            this.imageDuo = _exists;
+          });
+
+          if (!this.imageDuo) {
+            this.urlChanteurA = this.chanteurService.setUrlSolo(chanteurA);
+            this.urlChanteurB = this.chanteurService.setUrlSolo(chanteurB);
+          }
   }
 }
 
