@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { Chanson } from '../model/chanson';
 import { Chanteur } from '../model/chanteur';
+import { ListeChansons } from '../model/liste-chansons';
 import { ChansonService } from '../service/chanson.service';
 import { ChanteurService } from '../service/chanteur.service';
+import { DataStoreService } from '../service/data-store.service';
 
 @Component({
   selector: 'app-tour-karaoke',
@@ -23,20 +25,32 @@ export class TourKaraokeComponent implements OnInit {
   urlChanteurA: string = '';
   urlChanteurB: string = '';
   imageDuo!: boolean ;
-
+  chansonsJouees: ListeChansons = new ListeChansons();
   constructor(
     private chanteurService: ChanteurService,
     private chansonService: ChansonService,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    private dataStore: DataStoreService
   ) { }
 
   ngOnInit(): void {
     this.random();
+    this.dataStore.videosChantees$.subscribe(listeChansons => {
+      this.chansonsJouees = listeChansons;
+    });
     }
 
   random() {
+    //Au click sur random, on met l'ancienne vidéo dans la liste des vidéos déjà visionnées
+    console.log("LA CHANSON : ", this.chanson);
+    if (this.chanson !== undefined) {
+      this.chansonsJouees?.listeChansons.push(this.chanson);
+    }
+    this.dataStore.videosChantees = this.chansonsJouees;
+    console.log("ON A DEJA CHANTE CA : ", this.chansonsJouees);
+      let chansonsJoueesId = this.chansonsJouees.listeChansons.map(elem => elem.id);
       //Recup de la musique
-      this.chansonService.getRandomChansons(1)
+      this.chansonService.getRandomChansons(1, chansonsJoueesId)
       .subscribe((chansons) => {
         this.chanson = chansons[0];
         if (this.chanson.nombreChanteurs !==0 && 

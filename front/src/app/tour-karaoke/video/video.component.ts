@@ -9,6 +9,8 @@ import { SafeResourceUrl } from '@angular/platform-browser';
 export class VideoComponent implements OnInit {
   @Input() lien!: SafeResourceUrl;
   @Input() lienOnglet! : string;
+  @Input() nomVideo! : string;
+  @Input() artiste! : string;
   constructor() { }
 
   ngOnInit(): void {

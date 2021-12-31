@@ -43,9 +43,9 @@ public class ChansonController {
 		}
 	}
 	
-	@GetMapping("/random")
-	public List<Chanson> getRandom(@RequestParam Integer nombreChansons) {
-		return service.getRandom(nombreChansons);
+	@PostMapping("/random")
+	public List<Chanson> getRandom(@RequestParam Integer nombreChansons, @RequestBody List<Long> dejaJoue) {
+		return service.getRandom(nombreChansons, dejaJoue);
 	}
 	
 	@PostMapping("/multiple")

@@ -13,8 +13,9 @@ export class ChansonService extends CrudService<Chanson,string> {
     super(_http, environment.apiUrl + '/chanson');
   }
 
-  getRandomChansons(nombreChansons: number): Observable<any> {
+  getRandomChansons(nombreChansons: number, listeChansonId: string[]): Observable<any> {
+    console.log("ON VEUT DU RANDOM", listeChansonId);
     let params = new HttpParams().set("nombreChansons",nombreChansons);
-    return this._http.get<any>(this._base + '/random', {params});
+    return this._http.post<any>(this._base + '/random', listeChansonId, {params});
   }
 }

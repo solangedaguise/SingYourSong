@@ -7,7 +7,7 @@ import com.singyoursong.model.Chanson;
 
 public interface IChansonService {
 
-	List<Chanson> getRandom(Integer nombreChansons);
+	List<Chanson> getRandom(Integer nombreChansons, List<Long> dejaJoue);
 
 	void saveMultiple(List<Chanson> chansons);
 

@@ -2,8 +2,6 @@ package com.singyoursong.service;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,8 +17,9 @@ public class ChansonService implements IChansonService {
 	private ChansonRepository repo;
 	
 	@Override
-	public List<Chanson> getRandom(Integer nombreChansons) {
+	public List<Chanson> getRandom(Integer nombreChansons, List<Long> dejaJoue) {
 		List<Chanson> allUsers = this.getAll();
+		allUsers = allUsers.stream().filter(elem -> !dejaJoue.contains(elem.getId())).collect(Collectors.toList());
 		return (List<Chanson>) CommonUtils.pickNRandom(allUsers, nombreChansons);
 	}
 

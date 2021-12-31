@@ -8,6 +8,6 @@
 <div class='carte-chanteur'> <app-prenom [chanteur]=chanteurB></app-prenom> <button mat-raised-button color="primary" (click)="changeChanteur(chanteurB)">Mais c'est encore moi euh</button>
 </div>
 </div>
-<app-video [lien]="urlVideoSafe" [lienOnglet]=lienOnglet></app-video>
-<button mat-raised-button color="primary" (click)="random()">RANDOM PLAYERZZ</button>
+<app-video [artiste]="chanson.artiste" [nomVideo]="chanson.titre" [lien]="urlVideoSafe" [lienOnglet]=lienOnglet></app-video>
+<button mat-raised-button color="primary" (click)="random()">CHANSON SUIVANTE</button>
 </div>
