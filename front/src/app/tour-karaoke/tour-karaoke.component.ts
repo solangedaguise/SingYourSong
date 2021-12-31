@@ -71,6 +71,7 @@ export class TourKaraokeComponent implements OnInit {
           this.chanteurB = chanteurs[1];
           this.chanteurJokerA = chanteurs[2];
           this.chanteurJokerB = chanteurs[3];
+          console.log("doit chanter: " + this.chanteurA.prenom + ":" + this.chanteurB.prenom);
           this.setImage(this.chanteurA,this.chanteurB);
         });
       });
@@ -87,12 +88,15 @@ export class TourKaraokeComponent implements OnInit {
     this.urlPhoto = this.chanteurService.setImageDuoSrc(chanteurA, chanteurB);
           this.imageExists(this.urlPhoto, (_exists: any) => {
             this.imageDuo = _exists;
+            console.log("assets Duo exists ?" +this.imageDuo);
+            if (!this.imageDuo) {
+              console.log("image de : " + this.chanteurA.prenom + ":" + this.chanteurB.prenom);
+  
+              this.urlChanteurA = this.chanteurService.setUrlSolo(chanteurA);
+              this.urlChanteurB = this.chanteurService.setUrlSolo(chanteurB);
+            }
           });
-
-          if (!this.imageDuo) {
-            this.urlChanteurA = this.chanteurService.setUrlSolo(chanteurA);
-            this.urlChanteurB = this.chanteurService.setUrlSolo(chanteurB);
-          }
+          
   }
 
   changeChanteur(chanteur:Chanteur){
