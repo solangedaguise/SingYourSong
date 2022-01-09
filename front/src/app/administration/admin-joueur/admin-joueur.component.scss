@@ -1,0 +1,22 @@
+.container-chanteur{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form-container{
+    margin-top: 5px;
+}
+
+.form-button{
+    display: flex;
+}
+
+.form{
+    display:flex;
+    flex-direction: column;
+}
+
+.add-button{
+    margin-left: 10px;
+}

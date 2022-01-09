@@ -1,4 +1,4 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { environment } from 'src/environments/environment';
@@ -16,6 +16,19 @@ export class ChanteurService extends CrudService<Chanteur,string> {
   getRandomUsers(nombreJoueurs: number): Observable<any> {
     let params = new HttpParams().set("nombreJoueurs",nombreJoueurs);
     return this._http.get<any>(this._base + '/random', {params});
+  }
+
+  getAllUsers(): Observable<any> {
+    return this._http.get<any>(this._base + '/all');
+  }
+
+  saveUser(chanteur:Chanteur): Observable<any> {
+    return this._http.post<Chanteur>(this._base, chanteur);
+  }
+
+  deleteUserById(id:string): Observable<any> {
+    let params = new HttpParams().set("id",id);
+    return this._http.delete(this._base, {params})
   }
 
   setImageDuoSrc(chanteurA: Chanteur, chanteurB: Chanteur){

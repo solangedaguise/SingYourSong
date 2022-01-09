@@ -67,10 +67,15 @@ export class TourKaraokeComponent implements OnInit {
         //Recup des chanteurs
         this.chanteurService.getRandomUsers(this.nbChanteurs)
         .subscribe((chanteurs) => {
+          //TODO 'gerer' le random => suppression des joueurs tirés lors d'une rotation
           this.chanteurA = chanteurs[0];
           this.chanteurB = chanteurs[1];
+
+          //TODO module de reroll complet
           this.chanteurJokerA = chanteurs[2];
           this.chanteurJokerB = chanteurs[3];
+
+
           console.log("doit chanter: " + this.chanteurA.prenom + ":" + this.chanteurB.prenom);
           this.setImage(this.chanteurA,this.chanteurB);
         });
@@ -91,7 +96,6 @@ export class TourKaraokeComponent implements OnInit {
             console.log("assets Duo exists ?" +this.imageDuo);
             if (!this.imageDuo) {
               console.log("image de : " + this.chanteurA.prenom + ":" + this.chanteurB.prenom);
-  
               this.urlChanteurA = this.chanteurService.setUrlSolo(chanteurA);
               this.urlChanteurB = this.chanteurService.setUrlSolo(chanteurB);
             }

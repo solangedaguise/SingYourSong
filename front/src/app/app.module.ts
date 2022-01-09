@@ -19,6 +19,8 @@ import {MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
 import { MenuItemComponent } from './shared/components/menu-item/menu-item.component';
 import { AccueilComponent } from './accueil/accueil.component';
+import { AdminChansonComponent } from './administration/admin-chanson/admin-chanson.component';
+import { AdminJoueurComponent } from './administration/admin-joueur/admin-joueur.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { AccueilComponent } from './accueil/accueil.component';
     VideoComponent,
     SideNavComponent,
     MenuItemComponent,
-    AccueilComponent
+    AccueilComponent,
+    AdminChansonComponent,
+    AdminJoueurComponent,
   ],
   imports: [
     MatListModule,
