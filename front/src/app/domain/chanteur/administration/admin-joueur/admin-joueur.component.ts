@@ -65,6 +65,24 @@ export class AdminJoueurComponent implements OnInit {
       console.log('The dialog was closed');
     });
   }
+
+  openEditDialog(chanteur:Chanteur): void {
+    const dialogRef = this.dialog.open(DialogEditJoueurDialog, {
+      width: '22%',
+      data: {pseudo: this.pseudo, commentaire: this.commentaire},
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      chanteur.prenom = result.pseudo;
+      chanteur.commentaire = result.commentaire;
+      console.log(chanteur.id + " id du joueur modifié !! ")
+    this.chanteurService.saveUser(chanteur).subscribe((res) => {
+      window.location.reload();
+      console.log(chanteur + "modifié !!");
+    });
+      console.log('The dialog was closed');
+    });
+  }
 }
 
 @Component({

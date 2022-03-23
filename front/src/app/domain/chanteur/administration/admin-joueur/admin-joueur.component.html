@@ -5,7 +5,7 @@
             <div class="container-chanteur">
                 <app-prenom [chanteur]=chanteur></app-prenom>
                 <div class="button-actions">
-                    <button  mat-mini-fab color="primary" aria-label="edit Joueur" (click)="modifierJoueur(chanteur)">
+                    <button  mat-mini-fab color="primary" aria-label="edit Joueur" (click)="openEditDialog(chanteur)">
                         <mat-icon>edit</mat-icon>
                     </button>
                     <button  mat-mini-fab color="primary" aria-label="delete Joueur" (click)="suppressionJoueur(chanteur)">
