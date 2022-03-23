@@ -2,6 +2,7 @@ import { CUSTOM_ELEMENTS_SCHEMA, NgModule, NO_ERRORS_SCHEMA } from '@angular/cor
 import { BrowserModule } from '@angular/platform-browser';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
+import { MatTableModule} from '@angular/material/table';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,7 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrenomComponent } from './tour-karaoke/prenom/prenom.component';
 import { VideoComponent } from './tour-karaoke/video/video.component';
 import {MatCardModule} from '@angular/material/card';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { SideNavComponent } from './shared/components/side-nav/side-nav.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -23,6 +24,9 @@ import { AccueilComponent } from './accueil/accueil.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { AdminJoueurComponent, DialogEditJoueurDialog } from './domain/chanteur/admin-joueur/admin-joueur.component';
 import { AdminChansonComponent } from './domain/chanson/admin-chanson/admin-chanson.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { TableFilterPipe } from './domain/chanson/admin-chanson/TableChansonFilterPipe';
 
 @NgModule({
   declarations: [
@@ -36,6 +40,7 @@ import { AdminChansonComponent } from './domain/chanson/admin-chanson/admin-chan
     AdminChansonComponent,
     AdminJoueurComponent,
     DialogEditJoueurDialog,
+    TableFilterPipe
   ],
   imports: [
     MatDialogModule,
@@ -43,6 +48,9 @@ import { AdminChansonComponent } from './domain/chanson/admin-chanson/admin-chan
     MatIconModule,
     MatInputModule,
     MatToolbarModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
     MatSidenavModule,
     MatButtonModule,
     MatCardModule,

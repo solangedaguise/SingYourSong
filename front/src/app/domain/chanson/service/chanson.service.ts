@@ -18,4 +18,8 @@ export class ChansonService extends CrudService<Chanson,string> {
     let params = new HttpParams().set("nombreChansons",nombreChansons);
     return this._http.post<any>(this._base + '/random', listeChansonId, {params});
   }
+
+  getAllChansons(): Observable<any> {
+    return this._http.get<any>(this._base + '/all');
+  }
 }
