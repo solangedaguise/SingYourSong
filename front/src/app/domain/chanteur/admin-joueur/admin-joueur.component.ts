@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { Chanteur } from 'src/app/domain/chanteur/model/chanteur';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
-import { ChanteurService } from '../../service/chanteur.service';
+import { ChanteurService } from '../service/chanteur.service';
 
 export interface DialogData {
   pseudo: string;

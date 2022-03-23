@@ -20,9 +20,9 @@ import {MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
 import { MenuItemComponent } from './shared/components/menu-item/menu-item.component';
 import { AccueilComponent } from './accueil/accueil.component';
-import { AdminChansonComponent } from './administration/admin-chanson/admin-chanson.component';
-import { AdminJoueurComponent, DialogEditJoueurDialog } from './domain/chanteur/administration/admin-joueur/admin-joueur.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { AdminJoueurComponent, DialogEditJoueurDialog } from './domain/chanteur/admin-joueur/admin-joueur.component';
+import { AdminChansonComponent } from './domain/chanson/admin-chanson/admin-chanson.component';
 
 @NgModule({
   declarations: [
