@@ -14,7 +14,7 @@
                 </div>
             </div>
         </mat-list>
-        <button *ngIf="!showForm" mat-mini-fab color="primary" aria-label="ajouter Joueur" (click)="displayForm()">
+        <button *ngIf="!showForm" mat-mini-fab color="primary" aria-label="ajouter Joueur" (click)="openDialog()">
             <mat-icon>add</mat-icon>
         </button>
         <app-form-edit-joueur [chanteur]="editChanteur" *ngIf="showForm"></app-form-edit-joueur>

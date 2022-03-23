@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Chanteur } from 'src/app/model/chanteur';
+import { Chanteur } from 'src/app/domain/chanteur/model/chanteur';
 
 @Component({
   selector: 'app-prenom',

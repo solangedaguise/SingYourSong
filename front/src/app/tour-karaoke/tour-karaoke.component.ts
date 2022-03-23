@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { Chanson } from '../model/chanson';
-import { Chanteur } from '../model/chanteur';
+import { Chanteur } from '../domain/chanteur/model/chanteur';
 import { ListeChansons } from '../model/liste-chansons';
 import { ChansonService } from '../service/chanson.service';
-import { ChanteurService } from '../service/chanteur.service';
 import { DataStoreService } from '../service/data-store.service';
+import { ChanteurService } from '../domain/chanteur/service/chanteur.service';
 
 @Component({
   selector: 'app-tour-karaoke',

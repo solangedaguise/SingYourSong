@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Chanteur } from 'src/app/model/chanteur';
-import { ChanteurService } from 'src/app/service/chanteur.service';
+import { Chanteur } from 'src/app/domain/chanteur/model/chanteur';
+import { ChanteurService } from '../../../service/chanteur.service';
 
 @Component({
   selector: 'app-form-edit-joueur',
