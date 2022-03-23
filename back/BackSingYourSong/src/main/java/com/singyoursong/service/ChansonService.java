@@ -1,5 +1,6 @@
 package com.singyoursong.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -24,6 +25,13 @@ public class ChansonService implements IChansonService {
 	}
 
 	@Override
+	public void saveChanson(Chanson chanson) throws Exception {
+		List<Chanson> chansons = new ArrayList<>();
+		chansons.add(chanson);
+		saveMultiple(chansons);
+	}
+	
+	@Override
 	public void saveMultiple(List<Chanson> chansons) {
 	    
 		List<Chanson> chansonsEmbed = chansons.stream().map(chanson -> {
@@ -42,6 +50,16 @@ public class ChansonService implements IChansonService {
 	@Override
 	public Optional<Chanson> getById(Long id) {
 		return repo.findById(id);
+	}
+
+	@Override
+	public void deleteChansonById(long id) throws Exception {
+		// TODO Auto-generated method stub
+		
+
+
+	
+		
 	}
 
 }

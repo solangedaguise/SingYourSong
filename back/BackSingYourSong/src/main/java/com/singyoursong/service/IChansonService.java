@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import com.singyoursong.model.Chanson;
+import com.singyoursong.model.User;
 
 public interface IChansonService {
 
@@ -14,5 +15,8 @@ public interface IChansonService {
 	List<Chanson> getAll();
 
 	Optional<Chanson> getById(Long id);
+	
+	void deleteChansonById(long id) throws Exception;
 
+	void saveChanson(Chanson chanson) throws Exception;
 }

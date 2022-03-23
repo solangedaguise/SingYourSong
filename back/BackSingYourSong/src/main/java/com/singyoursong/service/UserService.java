@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.singyoursong.model.Chanson;
 import com.singyoursong.model.User;
 import com.singyoursong.repository.UserRepository;
 import com.singyoursong.utils.CommonUtils;
@@ -38,8 +39,10 @@ public class UserService implements IUserService {
 	}
 	
 	@Override
-	public void saveUser(User user) {
-		repo.save(user);
+	public void saveUser(User user) throws Exception{
+		List<User> users = new ArrayList<>();
+		users.add(user);
+		saveMultipleUsers(users);
 	}
 
 	@Override
