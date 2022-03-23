@@ -1,6 +1,7 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,6 +22,7 @@ import { MenuItemComponent } from './shared/components/menu-item/menu-item.compo
 import { AccueilComponent } from './accueil/accueil.component';
 import { AdminChansonComponent } from './administration/admin-chanson/admin-chanson.component';
 import { AdminJoueurComponent } from './administration/admin-joueur/admin-joueur.component';
+import { FormEditJoueurComponent } from './administration/admin-joueur/form-edit-joueur/form-edit-joueur.component';
 
 @NgModule({
   declarations: [
@@ -33,10 +35,12 @@ import { AdminJoueurComponent } from './administration/admin-joueur/admin-joueur
     AccueilComponent,
     AdminChansonComponent,
     AdminJoueurComponent,
+    FormEditJoueurComponent,
   ],
   imports: [
     MatListModule,
     MatIconModule,
+    MatInputModule,
     MatToolbarModule,
     MatSidenavModule,
     MatButtonModule,

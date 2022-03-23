@@ -1,0 +1,28 @@
+<mat-card class="form-container">
+    <form  class="form-button" [formGroup]="formCreation">
+        <div class="form">
+            <mat-form-field>
+                <input matInput id="pseudo" aria-describedby="pseudoCreate" placeholder="pseudoJoueur" type="text"
+                    formControlName="pseudoJoueur">
+                <mat-error *ngIf="formCreation.controls['pseudoJoueur'].invalid && (formCreation.controls['pseudoJoueur'].dirty) &&
+                    formCreation.controls['pseudoJoueur'].errors?.['required']">Le champ est obligatoire.</mat-error>
+                <mat-error *ngIf="formCreation.controls['pseudoJoueur'].invalid && (formCreation.controls['pseudoJoueur'].dirty) &&
+                    formCreation.controls['pseudoJoueur'].errors?.['maxlength']">Le pseudo ne doit pas dépasser 10 caractères.
+                </mat-error>
+            </mat-form-field>
+    
+            <mat-form-field>
+                <input matInput id="commentaire" aria-describedby="commentaire" placeholder="commentaire" type="text"
+                    formControlName="commentaire">
+                <mat-error *ngIf="formCreation.controls['commentaire'].invalid && (formCreation.controls['commentaire'].dirty) &&
+                    formCreation.controls['commentaire'].errors?.['maxlength']">Le pseudo ne doit pas dépasser 10 caractères.
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+            <button mat-mini-fab class="add-button" color="primary" (click)="ajoutChanteur()" [disabled]=formCreation.invalid>
+                <mat-icon aria-hidden="false" aria-label="addPlayer">check</mat-icon>
+            </button>
+        </div>
+    </form>
+</mat-card>

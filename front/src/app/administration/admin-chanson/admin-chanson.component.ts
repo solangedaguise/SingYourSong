@@ -12,4 +12,9 @@ export class AdminChansonComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  //TODO Ajout chanson
+
+  //TODO Suppression chanson
+
+  //TODO display chanson
 }
