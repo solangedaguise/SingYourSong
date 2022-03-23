@@ -22,7 +22,6 @@ import { MenuItemComponent } from './shared/components/menu-item/menu-item.compo
 import { AccueilComponent } from './accueil/accueil.component';
 import { AdminChansonComponent } from './administration/admin-chanson/admin-chanson.component';
 import { AdminJoueurComponent, DialogEditJoueurDialog } from './domain/chanteur/administration/admin-joueur/admin-joueur.component';
-import { FormEditJoueurComponent } from './domain/chanteur/administration/admin-joueur/form-edit-joueur/form-edit-joueur.component';
 import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
@@ -36,7 +35,6 @@ import { MatDialogModule } from '@angular/material/dialog';
     AccueilComponent,
     AdminChansonComponent,
     AdminJoueurComponent,
-    FormEditJoueurComponent,
     DialogEditJoueurDialog,
   ],
   imports: [
