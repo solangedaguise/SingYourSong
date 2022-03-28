@@ -26,7 +26,6 @@ import { AdminJoueurComponent, DialogEditJoueurDialog } from './domain/chanteur/
 import { AdminChansonComponent } from './domain/chanson/admin-chanson/admin-chanson.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
-import { TableFilterPipe } from './domain/chanson/admin-chanson/TableChansonFilterPipe';
 
 @NgModule({
   declarations: [
@@ -40,7 +39,6 @@ import { TableFilterPipe } from './domain/chanson/admin-chanson/TableChansonFilt
     AdminChansonComponent,
     AdminJoueurComponent,
     DialogEditJoueurDialog,
-    TableFilterPipe
   ],
   imports: [
     MatDialogModule,

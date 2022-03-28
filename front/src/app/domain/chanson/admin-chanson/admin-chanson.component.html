@@ -1,16 +1,19 @@
 <div class="mat-elevation-z8">
-    
+  <mat-form-field appearance="fill" *ngFor="let songfilter of displayedColumns">
+    <mat-label>{{songfilter}}</mat-label>
+    <input matInput (keyup)="applyFilter($event,songfilter)" placeholder="filtre">
+</mat-form-field>
     <table mat-table [dataSource]="dataSource">
       <!-- Artiste Column -->
       <ng-container matColumnDef="artiste">
-        <th mat-header-cell *matHeaderCellDef> Artiste </th>
-        <td mat-cell *matCellDef="let chanson of chansons | tableFilter:filter"> {{chanson.artiste}} </td>
+        <th mat-header-cell *matHeaderCellDef>Artiste</th>
+        <td mat-cell *matCellDef="let chanson of (chansons)"> {{chanson.artiste}} </td>
       </ng-container>
   
       <!-- Titre Column -->
       <ng-container matColumnDef="titre">
         <th mat-header-cell *matHeaderCellDef> Titre </th>
-        <td mat-cell *matCellDef="let chanson of chansons"> {{chanson.titre}} </td>
+        <td mat-cell *matCellDef="let chanson of (chansons)"> {{chanson.titre}} </td>
       </ng-container>
   
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -20,6 +23,5 @@
     <mat-paginator [pageSizeOptions]="[5, 10, 20]"
                  showFirstLastButtons 
                  aria-label="Select page of chansons">
-                 
   </mat-paginator>
   </div>
